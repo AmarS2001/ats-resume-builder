@@ -85,13 +85,15 @@ Never fabricate, invent, or embellish any fact, metric, skill, company name, dat
 3–5 sentences, 60–90 words. Structure:
 1. **Open:** years of experience + seniority level (mirror the JD's exact title/level) + domain.
 2. **Body:** 2–3 core technical strengths, bolding key JD-matched terms.
-3. **Close:** a specific value-proposition sentence tied to COMPANY_NAME or the JD's stated goals.
+3. **Close:** a specific value-proposition sentence tied to the target role's core engineering goals.
 
 **Rules:**
 - No first-person "I", "my", or "we".
+- Do NOT explicitly mention the target company name in the Summary section text.
 - Forbidden clichés (never use): results-driven · passionate · team player · dynamic · detail-oriented · self-starter · go-getter · synergy · leverage (as a verb) · proactive.
 - Bold exactly 2–3 key terms; do not bold entire phrases.
 - Top 5 JD Tier-1/Tier-2 keywords must appear in the Summary.
+
 
 ---
 
