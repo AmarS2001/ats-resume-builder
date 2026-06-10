@@ -84,8 +84,34 @@ playwright install chromium
 You can run this server using `uv run ats-resume-builder` or `python -m ats_mcp.server`. To use it with your favorite AI tools, add the server to your configuration.
 
 ### Claude Desktop
-Add the following block to your `claude_desktop_config.json` (typically located at `~/Library/Application Support/Claude/claude_desktop_config.json` on macOS):
 
+You can configure Claude Desktop to run the MCP server directly from GitHub without cloning the project, or run it locally.
+
+#### Option A: Direct from GitHub (Recommended)
+Add this block to your `claude_desktop_config.json` (typically at `~/Library/Application Support/Claude/claude_desktop_config.json` on macOS):
+```json
+{
+  "mcpServers": {
+    "ats-resume-builder": {
+      "command": "uvx",
+      "args": [
+        "--from",
+        "git+https://github.com/AmarS2001/ats-resume-builder.git",
+        "ats-resume-builder"
+      ],
+      "env": {
+        "ATS_PROFILE_PATH": "/absolute/path/to/your/profile.yaml",
+        "ATS_OUTPUT_DIR": "/absolute/path/to/your/local/output-directory",
+        "GDRIVE_SERVICE_ACCOUNT_JSON": "your-raw-service-account-json-string-here",
+        "GDRIVE_FOLDER_ID": "your-folder-id-here"
+      }
+    }
+  }
+}
+```
+
+#### Option B: Local Repository
+If you cloned the project locally, configure it like this:
 ```json
 {
   "mcpServers": {
@@ -107,16 +133,17 @@ Add the following block to your `claude_desktop_config.json` (typically located 
   }
 }
 ```
-*Make sure to replace `/path/to/your/ats-repository` with the absolute path of the directory.*
 
 ### Cursor
-1. Go to **Settings** -> **Features** -> **MCP**.
-2. Click **+ Add New MCP Server**.
-3. Fill out the fields:
-   - **Name**: `ats-resume-builder`
-   - **Type**: `command`
-   - **Command**: `ATS_PROFILE_PATH="/absolute/path/to/your/profile.yaml" ATS_OUTPUT_DIR="/absolute/path/to/your/local/output-directory" uv --directory "/path/to/your/ats-repository" run ats-resume-builder`
-4. Click **Save**.
+
+Go to **Settings** -> **Features** -> **MCP** -> **+ Add New MCP Server**:
+
+* **Name**: `ats-resume-builder`
+* **Type**: `command`
+* **Command (Direct from GitHub)**:
+  `ATS_PROFILE_PATH="/absolute/path/to/your/profile.yaml" ATS_OUTPUT_DIR="/absolute/path/to/your/local/output-directory" uvx --from git+https://github.com/AmarS2001/ats-resume-builder.git ats-resume-builder`
+* **Command (Local Directory)**:
+  `ATS_PROFILE_PATH="/absolute/path/to/your/profile.yaml" ATS_OUTPUT_DIR="/absolute/path/to/your/local/output-directory" uv --directory "/path/to/your/ats-repository" run ats-resume-builder`
 
 ---
 
