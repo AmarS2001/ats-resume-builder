@@ -1,0 +1,111 @@
+personal:
+  name: "John Doe"
+  location: "San Francisco, CA"
+  email: "john.doe@example.com"
+  phone: "+1 (555) 019-9000"
+  linkedin: "https://www.linkedin.com/in/johndoe"
+  github: "https://github.com/johndoe"
+  portfolio: "https://johndoe.dev"
+
+# KEY-POINT FORMAT GUIDE:
+# Bullets are intentionally compressed to: action | tech used | metric | outcome
+# LLM should expand these into full CAR-format sentences when generating resume.
+# Do NOT copy values verbatim — rewrite in context of the target JD.
+
+summary_hints:
+  experience_years: "5+"
+  seniority: "Senior Software Engineer"
+  domains:
+    - backend development
+    - microservices
+    - distributed systems
+    - cloud-native architectures
+
+skills:
+  languages_frameworks:
+    - Go
+    - Python
+    - TypeScript
+    - Node.js
+    - FastAPI
+
+  databases:
+    - PostgreSQL
+    - Redis
+    - Elasticsearch
+
+  devops_monitoring:
+    - AWS
+    - Docker
+    - Kubernetes
+    - Terraform
+    - Prometheus
+    - Grafana
+
+  ai_assisted_development:
+    - Cursor
+    - Claude Code
+    - MCPs
+    - Prompt Engineering
+
+  architecture_patterns:
+    - Microservices
+    - Event-Driven Architecture
+    - REST & gRPC APIs
+
+experience:
+  - company: "TechCorp Inc."
+    location: "San Francisco, CA"
+    roles:
+      - title: "Senior Software Engineer"
+        start: "January 2022"
+        end: "Present"
+        bullets:
+          - action: "architected a high-throughput event processing pipeline"
+            tech: [Go, Kafka, PostgreSQL, Redis]
+            metrics:
+              scale: "500M+ events/day"
+              latency: "under 50ms"
+            outcome: "supported real-time user analytics and personalization"
+
+          - action: "optimized cloud infrastructure footprint"
+            tech: [AWS, Terraform, Kubernetes]
+            metrics:
+              cost_reduction: "35%"
+            outcome: "improved resource utilisation and auto-scaling performance"
+
+      - title: "Software Engineer II"
+        start: "June 2019"
+        end: "December 2021"
+        bullets:
+          - action: "developed customer billing microservice API"
+            tech: [Python, FastAPI, Stripe]
+            metrics:
+              reliability: "99.99% uptime"
+            outcome: "migrated legacy monolithic billing code safely to services"
+
+projects:
+  - name: "Open Source MCP Server"
+    description: "Developed and published an open-source Model Context Protocol server."
+    tech: [Python, FastMCP, Docker]
+    link: "https://github.com/johndoe/mcp-server"
+
+education:
+  - institution: "State University"
+    location: "City, State"
+    degree: "Bachelor of Science"
+    major: "Computer Science"
+    gpa: "3.85 / 4.00"
+    gpa_scale: "4.00"
+    start: "September 2015"
+    end: "May 2019"
+    courses:
+      - "Distributed Systems"
+      - "Database Design"
+      - "Algorithms & Complexity"
+
+achievements:
+  - type: "hackathon"
+    title: "First Place - TechCorp Internal Hackathon"
+    recognition: "Developed an AI-based automated log parser"
+    link: null

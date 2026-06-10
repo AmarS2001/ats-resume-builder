@@ -1,0 +1,120 @@
+"""Pydantic models mirroring profile.yaml structure."""
+
+from __future__ import annotations
+
+from typing import Any, Optional
+
+from pydantic import BaseModel, Field
+
+
+class Personal(BaseModel):
+    """Contact / identity information."""
+
+    name: str
+    location: str
+    email: str
+    phone: str
+    linkedin: Optional[str] = None
+    github: Optional[str] = None
+    portfolio: Optional[str] = None
+
+
+class SummaryHints(BaseModel):
+    """Hints the LLM uses to craft the summary paragraph."""
+
+    experience_years: str
+    seniority: str
+    domains: list[str] = Field(default_factory=list)
+
+
+class Skills(BaseModel):
+    """Skill categories — each is a flat list of keyword strings."""
+
+    languages_frameworks: list[str] = Field(default_factory=list)
+    databases: list[str] = Field(default_factory=list)
+    devops_monitoring: list[str] = Field(default_factory=list)
+    ai_assisted_development: list[str] = Field(default_factory=list)
+    architecture_patterns: list[str] = Field(default_factory=list)
+
+
+class Bullet(BaseModel):
+    """A single experience bullet — loosely structured so the LLM can expand it."""
+
+    action: str
+    tech: list[str] = Field(default_factory=list)
+    metrics: dict[str, Any] = Field(default_factory=dict)
+    outcome: Optional[str] = None
+    approach: Optional[str] = None
+    features: Optional[str] = None
+    replaced: Optional[str] = None
+    # Migration-style fields
+    from_: Optional[str] = Field(None, alias="from")
+    to: Optional[str] = None
+
+    model_config = {"populate_by_name": True}
+
+
+class Role(BaseModel):
+    """A single role held at a company."""
+
+    title: str
+    start: str
+    end: str
+    bullets: list[Bullet] = Field(default_factory=list)
+
+
+class Experience(BaseModel):
+    """One company block containing one or more roles."""
+
+    company: str
+    location: str
+    roles: list[Role] = Field(default_factory=list)
+
+
+class Education(BaseModel):
+    """A single education entry."""
+
+    institution: str
+    location: str
+    degree: str
+    major: Optional[str] = None
+    gpa: Optional[str] = None
+    gpa_scale: Optional[str] = None
+    percentage: Optional[str] = None
+    start: Optional[str] = None
+    end: Optional[str] = None
+    courses: list[str] = Field(default_factory=list)
+
+
+class Achievement(BaseModel):
+    """A single achievement or publication."""
+
+    type: str
+    title: Optional[str] = None
+    description: Optional[str] = None
+    journal: Optional[str] = None
+    recognition: Optional[str] = None
+    link: Optional[str] = None
+
+
+class Project(BaseModel):
+    """A side-project or open-source project."""
+
+    name: str
+    tech: list[str] = Field(default_factory=list)
+    url: Optional[str] = None
+    year: Optional[str] = None
+    description: Optional[str] = None
+    achievement: Optional[str] = None
+
+
+class Profile(BaseModel):
+    """Top-level container aggregating the full profile.yaml."""
+
+    personal: Personal
+    summary_hints: SummaryHints
+    skills: Skills
+    experience: list[Experience] = Field(default_factory=list)
+    education: list[Education] = Field(default_factory=list)
+    achievements: list[Achievement] = Field(default_factory=list)
+    projects: list[Project] = Field(default_factory=list)

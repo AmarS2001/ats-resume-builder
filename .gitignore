@@ -1,0 +1,23 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Generated resume output
+output/
+
+# Private candidate profile configuration
+profile.yaml
+
+# Local scratch and test scripts
+scratch/
+
+# Environment / local configs
+.python-version
+.DS_Store

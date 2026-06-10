@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume Template</title>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --accent: #0d2340;
+            --rule: #0d2340;
+            --muted: #555;
+            --f: 'Calibri', 'Carlito', Arial, sans-serif;
+            --name: 22px;
+            --h2: 10px;
+            --body: 9.8px;
+            --lh: 1.44;
+        }
+
+        html,
+        body {
+            background: #e0e0e0;
+            font-family: var(--f);
+            font-size: var(--body);
+            color: #111;
+            line-height: var(--lh);
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 24px auto;
+            background: #fff;
+            padding: 28px 38px 26px;
+            box-shadow: 0 2px 18px rgba(0, 0, 0, .13);
+        }
+
+        h1 {
+            font-size: var(--name);
+            font-weight: 700;
+            text-align: center;
+            color: var(--accent);
+            letter-spacing: .2px;
+            margin-bottom: 2px;
+        }
+
+        .contact {
+            text-align: center;
+            font-size: 9px;
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        .contact a {
+            color: var(--muted);
+            text-decoration: none;
+        }
+
+        .contact .sep {
+            margin: 0 4px;
+            color: #ccc;
+        }
+
+        section {
+            margin-top: 8px;
+        }
+
+        h2 {
+            font-size: var(--h2);
+            font-weight: 700;
+            letter-spacing: 1.3px;
+            text-transform: uppercase;
+            color: var(--accent);
+            border-bottom: 1.5px solid var(--rule);
+            padding-bottom: 2px;
+            margin-bottom: 5px;
+        }
+
+        .summary {
+            font-size: var(--body);
+            text-align: justify;
+        }
+
+        .skill-line {
+            font-size: var(--body);
+            margin-bottom: 2px;
+            line-height: var(--lh);
+        }
+
+        .skill-line strong {
+            color: #111;
+        }
+
+        .job {
+            margin-bottom: 5px;
+        }
+
+        .job-header {
+            overflow: hidden;
+            margin-bottom: 0;
+        }
+
+        .job-header .right {
+            float: right;
+            font-size: 9px;
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        .job-header .left {
+            font-weight: 700;
+            font-size: 10.2px;
+        }
+
+        .role-row {
+            overflow: hidden;
+            margin-top: 0;
+        }
+
+        .role-row .right {
+            float: right;
+            font-size: 9px;
+            color: var(--muted);
+            font-style: italic;
+            white-space: nowrap;
+        }
+
+        .role-row .left {
+            font-style: italic;
+            font-size: 9.5px;
+        }
+
+        ul {
+            margin: 3px 0 0 16px;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 2px;
+            font-size: var(--body);
+            line-height: var(--lh);
+        }
+
+        .edu {
+            margin-bottom: 4px;
+        }
+
+        .edu-school {
+            font-weight: 700;
+            font-size: 10.2px;
+        }
+
+        .edu-sub {
+            font-size: 9px;
+            color: var(--muted);
+            margin-top: 1px;
+        }
+
+        @media print {
+            body {
+                background: #fff;
+            }
+
+            .page {
+                margin: 0;
+                box-shadow: none;
+                width: 100%;
+                padding: 18px 28px;
+            }
+
+            @page {
+                size: A4;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <!-- NAME -->
+        <h1>John Doe</h1>
+        <!-- CONTACT -->
+        <p class="contact">
+            City, Country <span class="sep">|</span>
+            <a href="mailto:john.doe@example.com">john.doe@example.com</a> <span class="sep">|</span>
+            +1 234 567 8901
+        </p>
+        <!-- SUMMARY -->
+        <section>
+            <h2>Summary</h2>
+            <p class="summary">
+                <strong>Software Engineer with 2+ years of experience</strong> in full‑stack development, building
+                scalable web applications, and collaborating in agile teams.
+            </p>
+        </section>
+        <!-- SKILLS -->
+        <section>
+            <h2>Skills</h2>
+            <p class="skill-line"><strong>Languages and Frameworks:</strong> JavaScript, TypeScript, React</p>
+        </section>
+        <!-- EXPERIENCE -->
+        <section>
+            <h2>Professional Experience</h2>
+            <div class="job">
+                <div class="job-header">
+                    <span class="right">City</span>
+                    <span class="left">Acme Corp.</span>
+                </div>
+                <div class="role-row">
+                    <span class="right">Jan 2023 – Present</span>
+                    <span class="left">Frontend Engineer</span>
+                </div>
+                <ul>
+                    <li>Developed responsive UI components using React and CSS-in-JS, improving page load speed by 30%.
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- EDUCATION -->
+        <section>
+            <h2>Education</h2>
+            <div class="edu">
+                <div class="job-header">
+                    <span class="right">City, Country</span>
+                    <span class="edu-school">University of Example</span>
+                </div>
+                <div class="role-row">
+                    <span class="right">2018 – 2022</span>
+                    <span class="left">B.Sc. Computer Science</span>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>

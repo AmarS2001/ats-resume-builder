@@ -1,0 +1,24 @@
+[project]
+name = "ats-resume-builder"
+version = "0.1.0"
+description = "MCP tool to generate ATS-optimised resumes from profile.yaml + job descriptions"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "fastmcp",
+    "pydantic",
+    "pyyaml",
+    "playwright",
+    "google-api-python-client",
+    "google-auth",
+]
+
+[project.scripts]
+ats-resume-builder = "ats_mcp.server:main"
+
+[build-system]
+requires = ["setuptools>=75.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
