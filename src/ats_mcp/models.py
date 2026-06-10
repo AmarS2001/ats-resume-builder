@@ -7,7 +7,13 @@ from typing import Any, Optional
 from pydantic import BaseModel, Field
 
 
-class Personal(BaseModel):
+class ATSBaseModel(BaseModel):
+    """Base model that allows extra fields and populates by alias/name."""
+
+    model_config = {"extra": "allow", "populate_by_name": True}
+
+
+class Personal(ATSBaseModel):
     """Contact / identity information."""
 
     name: str
@@ -19,7 +25,7 @@ class Personal(BaseModel):
     portfolio: Optional[str] = None
 
 
-class SummaryHints(BaseModel):
+class SummaryHints(ATSBaseModel):
     """Hints the LLM uses to craft the summary paragraph."""
 
     experience_years: str
@@ -27,7 +33,7 @@ class SummaryHints(BaseModel):
     domains: list[str] = Field(default_factory=list)
 
 
-class Skills(BaseModel):
+class Skills(ATSBaseModel):
     """Skill categories — each is a flat list of keyword strings."""
 
     languages_frameworks: list[str] = Field(default_factory=list)
@@ -37,7 +43,7 @@ class Skills(BaseModel):
     architecture_patterns: list[str] = Field(default_factory=list)
 
 
-class Bullet(BaseModel):
+class Bullet(ATSBaseModel):
     """A single experience bullet — loosely structured so the LLM can expand it."""
 
     action: str
@@ -51,10 +57,8 @@ class Bullet(BaseModel):
     from_: Optional[str] = Field(None, alias="from")
     to: Optional[str] = None
 
-    model_config = {"populate_by_name": True}
 
-
-class Role(BaseModel):
+class Role(ATSBaseModel):
     """A single role held at a company."""
 
     title: str
@@ -63,7 +67,7 @@ class Role(BaseModel):
     bullets: list[Bullet] = Field(default_factory=list)
 
 
-class Experience(BaseModel):
+class Experience(ATSBaseModel):
     """One company block containing one or more roles."""
 
     company: str
@@ -71,7 +75,7 @@ class Experience(BaseModel):
     roles: list[Role] = Field(default_factory=list)
 
 
-class Education(BaseModel):
+class Education(ATSBaseModel):
     """A single education entry."""
 
     institution: str
@@ -86,7 +90,7 @@ class Education(BaseModel):
     courses: list[str] = Field(default_factory=list)
 
 
-class Achievement(BaseModel):
+class Achievement(ATSBaseModel):
     """A single achievement or publication."""
 
     type: str
@@ -97,7 +101,7 @@ class Achievement(BaseModel):
     link: Optional[str] = None
 
 
-class Project(BaseModel):
+class Project(ATSBaseModel):
     """A side-project or open-source project."""
 
     name: str
@@ -108,7 +112,7 @@ class Project(BaseModel):
     achievement: Optional[str] = None
 
 
-class Profile(BaseModel):
+class Profile(ATSBaseModel):
     """Top-level container aggregating the full profile.yaml."""
 
     personal: Personal
@@ -118,3 +122,4 @@ class Profile(BaseModel):
     education: list[Education] = Field(default_factory=list)
     achievements: list[Achievement] = Field(default_factory=list)
     projects: list[Project] = Field(default_factory=list)
+    summary: Optional[str] = None

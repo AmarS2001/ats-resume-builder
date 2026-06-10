@@ -5,10 +5,27 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
+import importlib.resources
+
 _PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 
 # Cache the style block extracted from template.html on first call.
 _STYLE_CACHE: str | None = None
+
+
+def _get_template_text(template_path: Path | None = None) -> str:
+    if template_path is not None:
+        return template_path.read_text(encoding="utf-8")
+
+    try:
+        ref = importlib.resources.files("ats_mcp") / "template.html"
+        if ref.is_file():
+            return ref.read_text(encoding="utf-8")
+    except Exception:
+        pass
+
+    fallback_path = _PROJECT_ROOT / "template.html"
+    return fallback_path.read_text(encoding="utf-8")
 
 
 def _extract_style(template_path: Path | None = None) -> str:
@@ -17,10 +34,7 @@ def _extract_style(template_path: Path | None = None) -> str:
     if _STYLE_CACHE is not None:
         return _STYLE_CACHE
 
-    if template_path is None:
-        template_path = _PROJECT_ROOT / "template.html"
-
-    text = template_path.read_text(encoding="utf-8")
+    text = _get_template_text(template_path)
     match = re.search(r"(<style[\s\S]*?</style>)", text, re.IGNORECASE)
     if not match:
         raise ValueError("No <style> block found in template.html")
@@ -30,9 +44,8 @@ def _extract_style(template_path: Path | None = None) -> str:
 
 def get_template(template_path: Path | None = None) -> str:
     """Return the raw contents of template.html."""
-    if template_path is None:
-        template_path = _PROJECT_ROOT / "template.html"
-    return template_path.read_text(encoding="utf-8")
+    return _get_template_text(template_path)
+
 
 
 def render_resume(body_html: str, template_path: Path | None = None) -> str:

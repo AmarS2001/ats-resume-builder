@@ -50,14 +50,12 @@ mcp = FastMCP(
 def get_profile() -> dict:
     """Return the candidate's full profile data from profile.yaml.
 
-    The returned JSON mirrors the YAML structure with sections:
-    personal, summary_hints, skills, experience, education,
-    achievements, and projects.
+    The returned JSON mirrors the YAML structure.
 
     Use this data together with the job description to tailor the resume.
     """
-    profile = load_profile()
-    return profile.model_dump(by_alias=True)
+    return load_profile()
+
 
 
 # ── Tool 2: get_template ─────────────────────────────────────────────────────
@@ -85,8 +83,16 @@ def get_prompt() -> str:
     section-by-section writing guidelines the LLM should follow when
     generating the resume HTML.
     """
+    import importlib.resources
+    try:
+        ref = importlib.resources.files("ats_mcp") / "prompt.md"
+        if ref.is_file():
+            return ref.read_text(encoding="utf-8")
+    except Exception:
+        pass
     prompt_path = _PROJECT_ROOT / "prompt.md"
     return prompt_path.read_text(encoding="utf-8")
+
 
 
 # ── Tool 4: generate_pdf ─────────────────────────────────────────────────────
@@ -128,7 +134,18 @@ def generate_pdf(resume_html: str, company_name: str) -> str:
 
     # Build the output filename from the candidate name in profile.yaml.
     profile = load_profile()
-    name_slug = _slugify(profile.personal.name)
+    
+    candidate_name = ""
+    if isinstance(profile, dict):
+        if "personal" in profile and isinstance(profile["personal"], dict):
+            candidate_name = profile["personal"].get("name")
+        elif "candidate" in profile and isinstance(profile["candidate"], dict):
+            candidate_name = profile["candidate"].get("name")
+            
+    if not candidate_name:
+        candidate_name = "Resume"
+        
+    name_slug = _slugify(candidate_name)
     company_slug = _slugify(company_name)
 
     # Also save the intermediate HTML for debugging / manual review.
