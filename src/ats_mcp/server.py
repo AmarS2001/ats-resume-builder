@@ -35,10 +35,11 @@ _OUTPUT_DIR = Path(os.environ.get("ATS_OUTPUT_DIR", str(_PROJECT_ROOT / "output"
 mcp = FastMCP(
     "ats-resume-builder",
     instructions=(
-        "ATS Resume Builder tools. Use get_profile() and get_template() to "
-        "gather inputs, craft the resume HTML yourself (as the LLM), then call "
-        "generate_pdf() to export. Use get_prompt() to read the system prompt "
-        "that guides ATS-optimised resume writing."
+        "ATS Resume Builder tools. Before constructing the resume HTML or calling generate_pdf(), "
+        "you MUST call get_prompt() to read the strict ATS formatting rules, and call get_template() "
+        "to read the design system structure. Failing to fetch get_prompt() first will result in formatting "
+        "rejection. Once you have gathered inputs using get_profile(), get_prompt(), and get_template(), "
+        "craft the resume HTML yourself and call generate_pdf() to render the final output."
     ),
 )
 

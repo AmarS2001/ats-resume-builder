@@ -23,13 +23,14 @@ Return ONLY a complete HTML file (`<!DOCTYPE html>` → `</html>`). No markdown 
 `<h1>` (name, one only) · `<h2>` (sections) · `<p>` (summary, skills) · `<ul>/<li>` (bullets) · `<a href>` (links) · `<strong>` (bold) · `<em>` (italic) · `<span>` (inline only) · `<div>` (grouping only)
 
 ### Forbidden
-- `<table>` for layout · `<img>`/`<svg>` · `position: absolute/fixed` · `display: grid/flex` for columns · `column-count` · `::before/::after` with content · unicode bullets (✦ ❖ ● ▸) · `@import` for fonts · hidden text
+- `<table>` for layout · `<img>`/`<svg>` · `position: absolute/fixed` · `display: grid/flex` for columns · `column-count` · `::before/::after` with content · unicode bullets (✦ ❖ ● ▸) · `@import` for fonts · hidden text · **CSS `letter-spacing`** (causes PDF print engines to split characters, jumbling words like "Education" into "E d u c a t i o n" in the PDF text layer, which fails ATS parsing).
 
 ### DOM Order
 HTML DOM order must match visual reading order (top → bottom). For right-aligned dates, place a `float: right` `<span>` **after** the left content in the DOM.
 
 ### Fonts
 Only: `font-family: 'Calibri', 'Carlito', Arial, sans-serif;` — no web fonts.
+
 
 ### Section Headers
 Use exactly: **Summary** · **Skills** · **Professional Experience** · **Education** · **Projects** · **Certifications** · **Achievements** · **Publications**
@@ -83,16 +84,18 @@ Never fabricate, invent, or embellish any fact, metric, skill, company name, dat
 
 ### Summary
 3–5 sentences, 60–90 words. Structure:
-1. **Open:** years of experience + seniority level (mirror the JD's exact title/level) + domain.
+1. **Open:** exact target job title (mirror the JD's exact title/level, e.g., "Software Engineer II") + years of experience + domain.
 2. **Body:** 2–3 core technical strengths, bolding key JD-matched terms.
 3. **Close:** a specific value-proposition sentence tied to the target role's core engineering goals.
 
 **Rules:**
+- The first sentence MUST open with the exact target job title from the job description (e.g., "Software Engineer II"), styled in `<strong>`.
 - No first-person "I", "my", or "we".
 - Do NOT explicitly mention the target company name in the Summary section text.
 - Forbidden clichés (never use): results-driven · passionate · team player · dynamic · detail-oriented · self-starter · go-getter · synergy · leverage (as a verb) · proactive.
 - Bold exactly 2–3 key terms; do not bold entire phrases.
 - Top 5 JD Tier-1/Tier-2 keywords must appear in the Summary.
+
 
 
 ---
@@ -226,6 +229,7 @@ Bold the key term or finding. The URL link text must match the exact URL string 
 
 ## 5 · Pre-Submission Checklist
 
+- [ ] Summary opens with the exact target job title bolded
 - [ ] Top 5 JD keywords in Summary
 - [ ] All required JD skills in Skills section
 - [ ] ≥15 unique JD keywords in document
