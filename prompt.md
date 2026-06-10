@@ -239,6 +239,7 @@ Bold the key term or finding. The URL link text must match the exact URL string 
 - [ ] Every bullet has a metric or verified scale indicator
 - [ ] No weak verb openers (Responsible for / Helped / Assisted / Worked on)
 - [ ] Active voice throughout; correct tense per role (present vs past)
+- [ ] No personal pronouns (I, me, my, we, our, us) in Summary or experience sections
 - [ ] No forbidden clichés in Summary
 - [ ] Promotions within same company use stacked role format
 - [ ] Contract/freelance roles labelled correctly
