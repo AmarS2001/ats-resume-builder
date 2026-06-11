@@ -76,7 +76,7 @@ Never fabricate, invent, or embellish any fact, metric, skill, company name, dat
 `<h1>` centred name. Contact line: City, Country | email | phone | LinkedIn vanity URL | GitHub — pipe-separated, links as `<a href>`.
 - Omit street address — city and country only.
 - LinkedIn and GitHub must use vanity/custom URLs, not auto-generated ones.
-- **Link Non-Aliasing Rule (Non-Negotiable):** All URLs/Links must be displayed fully as the anchor text (e.g. `<a href="https://github.com/AmarS2001">https://github.com/AmarS2001</a>`). Do NOT alias links with placeholder names (e.g., do not use `<a href="...">GitHub</a>` or `<a href="...">IEEE Xplore</a>`). The displayed link text must match the actual URL string exactly.
+- **Link Non-Aliasing Rule (Non-Negotiable):** All URLs/Links (except for repository links in the Projects section) must be displayed fully as the anchor text (e.g. `<a href="https://github.com/AmarS2001">https://github.com/AmarS2001</a>`). Do NOT alias links with placeholder names (e.g., do not use `<a href="...">GitHub</a>` or `<a href="...">IEEE Xplore</a>`). The displayed link text must match the actual URL string exactly.
 - Omit any contact field that is not present in CANDIDATE_YAML.
 
 
@@ -163,11 +163,12 @@ Include this section only if: (a) the candidate has fewer than 2 years of profes
 
 **Format per project:**
 ```
-Project Name (link to GitHub or live URL) | Tech Stack: [comma-separated]
+Project Name (<a href="[url]">[github link]</a>) | Tech Stack: [comma-separated]
 ```
 Followed by 1–2 CAR-format bullets.
 
 **Rules:**
+- GitHub links inside the Projects section must be aliased exactly as `[github link]` (enclosed in square brackets) for clean, ATS-friendly reading.
 - Include metrics where possible: GitHub stars, active users, performance improvements, uptime.
 - Order by JD relevance, not recency.
 - Omit academic exercises unless the scope is genuinely impressive (e.g. published, used in production, or open-source with traction).
