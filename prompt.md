@@ -164,12 +164,12 @@ Include this section only if: (a) the candidate has fewer than 2 years of profes
 
 **Format per project:**
 ```
-Project Name (<a href="[url]">(github_link)</a>) | Tech Stack: [comma-separated]
+Project Name (<a href="[url]">github_link</a>) | Tech Stack: [comma-separated]
 ```
 Followed by 1–2 CAR-format bullets.
 
 **Rules:**
-- GitHub links inside the Projects section must be aliased exactly as `(github_link)` (enclosed in parentheses) for clean, ATS-friendly reading.
+- GitHub links inside the Projects section must use the link text `github_link` wrapped in parentheses: `(<a href="[url]">github_link</a>)` so it renders visually as `(github_link)` (not double parentheses like `((github_link))`).
 - Include metrics where possible: GitHub stars, active users, performance improvements, uptime.
 - Order by JD relevance, not recency.
 - Omit academic exercises unless the scope is genuinely impressive (e.g. published, used in production, or open-source with traction).
