@@ -139,7 +139,11 @@ Reverse chronological order.
 - Use varied opening verbs. Suggested pool: Architected · Built · Designed · Scaled · Reduced · Migrated · Automated · Streamlined · Launched · Refactored · Optimised · Delivered · Led · Mentored · Integrated.
 - Bullets must show **impact**, not duties. Wrong: "Responsible for API development." Right: "Architected a REST API serving **2M+ requests/day**, reducing p99 latency by **34%**."
 - Reorder bullets per role to match JD priorities — most relevant bullet first.
-- Latest role: 3–4 bullets. Roles 2–3: 2–3 bullets. Older roles: 1–2 bullets.
+- Latest role (current workplace): 4–5 detailed, high-impact bullets. Prioritise deep technical details on system architecture, design decisions, scaling, and ownership to highlight the candidate's current capabilities.
+- Roles 2–3: 2–3 bullets.
+- Older roles: 1–2 bullets.
+- **Current Workplace Focus (First Company Block):** Since the candidate's current/most recent workplace represents their highest level of skill and responsibility, allocate the most detail and context here. Explicitly establish the engineering scale of the current workplace (e.g. handling millions of daily requests/transactions, distributed microservices, high-throughput pipelines, cloud-native deployments).
+- **Show Progression:** For promotions/progression at the current workplace (e.g. Intern to SDE I to SDE II), structure the descriptions to show a clear increase in responsibility, starting with execution/latency optimization (as an intern) and rising to system-level architecture, database migrations, and design ownership (as SDE II).
 
 ---
 
@@ -150,9 +154,11 @@ Reverse chronological. Most recent / highest degree first.
 - Degree, Major — Institution Name (Month YYYY – Month YYYY)
 - GPA: X.X/10 or X.X/4.0 — include only if ≥8.0/10 or ≥3.5/4.0
 - Relevant Courses: [list] — list all courses provided in CANDIDATE_YAML, comma-separated
+- Awards/Recognition: [list] — list any scholarships, honors, or academic achievements under `recognition` in CANDIDATE_YAML, comma-separated
 
 **Rules:**
-- Omit high school if a university degree exists (unless the high school achievement is exceptional and JD-relevant).
+- Include all education entries listed in CANDIDATE_YAML (do not omit high school or secondary education entries).
+- If an entry has no degree or major (e.g. high school), format as: `Institution Name (Month YYYY – Month YYYY)` or equivalent.
 - For in-progress degrees: use "Expected: Month YYYY" for the end date.
 - For online degrees: include the platform if it adds credibility — e.g. "B.Sc. Computer Science — University of London (via Coursera)".
 - List all coursework listed in CANDIDATE_YAML under the respective education entry.
