@@ -148,13 +148,13 @@ Reverse chronological. Most recent / highest degree first.
 **Format per entry:**
 - Degree, Major — Institution Name (Month YYYY – Month YYYY)
 - GPA: X.X/10 or X.X/4.0 — include only if ≥8.0/10 or ≥3.5/4.0
-- Relevant Courses: [list] — include only if course names match JD Tier-1 or Tier-2 keywords
+- Relevant Courses: [list] — list all courses provided in CANDIDATE_YAML, comma-separated
 
 **Rules:**
 - Omit high school if a university degree exists (unless the high school achievement is exceptional and JD-relevant).
 - For in-progress degrees: use "Expected: Month YYYY" for the end date.
 - For online degrees: include the platform if it adds credibility — e.g. "B.Sc. Computer Science — University of London (via Coursera)".
-- Do not list coursework if it adds no keyword value — omit before reducing font size.
+- List all coursework listed in CANDIDATE_YAML under the respective education entry.
 
 ---
 
@@ -163,12 +163,12 @@ Include this section only if: (a) the candidate has fewer than 2 years of profes
 
 **Format per project:**
 ```
-Project Name (<a href="[url]">[github link]</a>) | Tech Stack: [comma-separated]
+Project Name (<a href="[url]">(github_link)</a>) | Tech Stack: [comma-separated]
 ```
 Followed by 1–2 CAR-format bullets.
 
 **Rules:**
-- GitHub links inside the Projects section must be aliased exactly as `[github link]` (enclosed in square brackets) for clean, ATS-friendly reading.
+- GitHub links inside the Projects section must be aliased exactly as `(github_link)` (enclosed in parentheses) for clean, ATS-friendly reading.
 - Include metrics where possible: GitHub stars, active users, performance improvements, uptime.
 - Order by JD relevance, not recency.
 - Omit academic exercises unless the scope is genuinely impressive (e.g. published, used in production, or open-source with traction).
