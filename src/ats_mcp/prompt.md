@@ -59,6 +59,7 @@ Summary (highest weight) → Skills → Job titles → Bullet openers → Bullet
 
 ### Integrity Rule (Non-Negotiable)
 Never fabricate, invent, or embellish any fact, metric, skill, company name, date, title, or achievement. Every claim must come directly from CANDIDATE_YAML. If a metric is unavailable, use a verified scale indicator (e.g. "across 3 teams", "serving 200+ users") — do not estimate or invent percentages.
+- **Domain Alignment:** If the target role title or job description specifies a business domain or industry vertical (e.g., "AdTech", "Fintech", "EdTech") that is not explicitly present in the candidate's history (according to CANDIDATE_YAML), do NOT mention or claim experience in that domain. Strip/genericize any domain-specific suffixes from the target job title (e.g., use "Software Engineer II" instead of "Software Engineer II - AdTech") and do not use domain terminology you have not worked in.
 
 ### Voice, Tense & Content Quality Rules
 - **Active voice only.** Never use passive constructions ("was responsible for", "was involved in").
@@ -89,7 +90,7 @@ Never fabricate, invent, or embellish any fact, metric, skill, company name, dat
 3. **Close:** a specific value-proposition sentence tied to the target role's core engineering goals.
 
 **Rules:**
-- The first sentence MUST open with the exact target job title from the job description (e.g., "Software Engineer II"), styled in `<strong>`.
+- The first sentence MUST open with the exact target job title from the job description (e.g., "Software Engineer II"), styled in `<strong>`. If the target job title contains a domain/industry suffix (e.g., "AdTech" in "SDE II - AdTech") and the candidate has no prior experience in that domain, strip that suffix to avoid fabricating experience (e.g., use "Software Engineer II").
 - No first-person "I", "my", or "we".
 - Do NOT explicitly mention the target company name in the Summary section text.
 - Forbidden clichés (never use): results-driven · passionate · team player · dynamic · detail-oriented · self-starter · go-getter · synergy · leverage (as a verb) · proactive.
@@ -230,7 +231,7 @@ Bold the key term or finding. The URL link text must match the exact URL string 
 
 ## 5 · Pre-Submission Checklist
 
-- [ ] Summary opens with the exact target job title bolded
+- [ ] Summary opens with the target job title bolded (stripped of domain qualifiers if the candidate has no experience in that domain)
 - [ ] Top 5 JD keywords in Summary
 - [ ] All required JD skills in Skills section
 - [ ] ≥15 unique JD keywords in document
@@ -245,5 +246,5 @@ Bold the key term or finding. The URL link text must match the exact URL string 
 - [ ] Promotions within same company use stacked role format
 - [ ] Contract/freelance roles labelled correctly
 - [ ] Fits single A4 page
-- [ ] No fabricated content — every claim sourced from CANDIDATE_YAML
+- [ ] No fabricated content (including domain experience not present in CANDIDATE_YAML) — every claim sourced from CANDIDATE_YAML
 - [ ] No tables, images, SVG, or unicode bullets
